@@ -1,7 +1,4 @@
-# For MoCo codes
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
-# For the rest of the codes
-# Copyright (c) ETH Zurich and EPFL ECEO lab. All Rights Reserved
 import torch
 import torch.nn as nn
 
@@ -479,24 +476,3 @@ class GroupQue(nn.Module):
         ptr = (ptr + batch_size) % self.K  # move pointer
 
         self.queue_ptr[0] = ptr
-
-
-class EvalModel(nn.Module):
-    """
-    Build a structured as followed:
-    image -> encoder -> downstream model -> results/feature maps
-    """
-    def __init__(self, encoder, downstream):
-        """
-        encoder
-        downstream
-        """
-        super(EvalModel, self).__init__()
-        self.encoder = encoder
-        self.downstream = downstream
-
-
-    def forward(self, x):
-        feature_vector = self.encoder(x)
-        res = self.downstream(feature_vector)
-        return res
