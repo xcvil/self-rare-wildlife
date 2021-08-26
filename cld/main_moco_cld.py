@@ -395,7 +395,7 @@ def main_worker(gpu, ngpus_per_node, args):
         # train for one epoch
         train_loss = train(train_loader, model, criterion, optimizer, epoch, args)
         results['train_loss'].append(train_loss)
-        test_acc_1 = test(model.module.encoder_q.instDis, memory_loader, test_loader, epoch, args)
+        test_acc_1 = test(model.module.encoder_q, memory_loader, test_loader, epoch, args)
         results['test_acc@1'].append(test_acc_1)
         # save statistics
         data_frame = pd.DataFrame(data=results, index=range(args.start_epoch + 1, epoch + 2))
@@ -508,7 +508,7 @@ def test(model, memory_data_loader, test_data_loader, epoch, args):
         # generate feature bank
         for data, target in tqdm(memory_data_loader, desc='Feature extracting'):
             feature = model(data.cuda(non_blocking=True))
-            feature = F.normalize(feature, dim=1)
+            feature = F.normalize(feature[0], dim=1)
             feature_bank.append(feature)
         # [D, N]
         feature_bank = torch.cat(feature_bank, dim=0).t().contiguous()
@@ -519,7 +519,7 @@ def test(model, memory_data_loader, test_data_loader, epoch, args):
         for data, target in test_bar:
             data, target = data.cuda(non_blocking=True), target.cuda(non_blocking=True)
             feature = model(data)
-            feature = F.normalize(feature, dim=1)
+            feature = F.normalize(feature[0], dim=1)
 
             pred_labels = knn_predict(feature, feature_bank, feature_labels, classes, args.knn_k, args.knn_t)
 

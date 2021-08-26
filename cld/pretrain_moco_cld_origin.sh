@@ -14,7 +14,7 @@ python main_moco_cld.py \
   --moco-t 0.2 \
   --cld-t ${cld_t} \
   --amp-opt-level O1 \
-  --num-iters 5 \
+  --num-iters 16 \
   --clusters ${clusters} \
   --use-kmeans \
   --normlinear \
