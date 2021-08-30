@@ -20,7 +20,7 @@ python main_moco_cld.py \
   --normlinear \
   --knn-k 20 \
   --knn-t 0.02 \
-  --knn-data "/home/xiaochen/KWD-LT-0.1" \
+  --knn-data PATH \
   --save-dir "output/imagenet/mocov2+cld/lr${lr}-Lambda${Lambda}-cld_t${cld_t}-clusters${clusters}-NormNLP-epochs200/" \
   --dist-url 'tcp://localhost:10001' --multiprocessing-distributed --world-size 1 --rank 0 \
-  '/home/xiaochen/KWD-LT/train'
+  PRETRAIN_PATH
