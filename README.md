@@ -2,11 +2,13 @@
 
 This is a PyTorch implementation of the [Self-Supervised Pretraining and Controlled Augmentation Improve Rare Wildlife Recognition in UAV Images](https://arxiv.org/abs/2108.07582):
 ```
-@Article{zheng2021selfkuzikus,
-  title = {Self-Supervised Pretraining and Controlled Augmentation Improve Rare Wildlife Recognition in UAV Images},
-  author = {Zheng, Xiaochen and Kellenberger, Benjamin and Gong, Rui and Hajnsek, Irena and Tuia, Devis},
-  journal = {arXiv preprint arXiv:2108.07582},
-  year = {2021}
+@InProceedings{Zheng_2021_ICCV,
+    author    = {Zheng, Xiaochen and Kellenberger, Benjamin and Gong, Rui and Hajnsek, Irena and Tuia, Devis},
+    title     = {Self-Supervised Pretraining and Controlled Augmentation Improve Rare Wildlife Recognition in UAV Images},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+    month     = {October},
+    year      = {2021},
+    pages     = {732-741}
 }
 ```
 
