@@ -13,6 +13,8 @@ This is a PyTorch implementation of the [Self-Supervised Pretraining and Control
 ```
 
 ### Updates
+[29/10/2022] My master thesis at ETH Zurich implementing the ideas of image/feature mixture strategies for self-supervised visual representation learning is online now, see [arXiv submission](https://arxiv.org/abs/2211.05636). My thesis paper is an extension of my ICCV 2021 paper above.
+
 [21/10/2021] MixCo is supported, see [here](MixCo/pretrain_bimoco_mixup.sh).
 
 [30/08/2021] Feature extraction (for t-SNE visualization and KNN grid search) is supported, see [here](cld/vis.py).
